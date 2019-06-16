@@ -1,4 +1,4 @@
-package teiKoumei;
+package teiKomei;
 
 import java.util.ArrayList;
 import java.util.List;
