@@ -1,4 +1,4 @@
-package forth;
+package ou;
 
 public class TV2 extends TV {
 	@Override
