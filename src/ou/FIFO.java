@@ -15,10 +15,11 @@ public class FIFO<T> {
 		this.fifo.add(src);
 	}
 
-	public void out() {
-		if (!this.fifo.isEmpty()) {
-			fifo.remove(0);
+	public T out() {
+		if (this.fifo.isEmpty()) {
+			return null;
 		}
+		return fifo.remove(0);
 	}
 
 	@Override
