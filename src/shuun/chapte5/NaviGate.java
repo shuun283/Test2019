@@ -11,5 +11,6 @@ public class NaviGate {
 
 	public void navigete(File dir) {
 		System.out.println(" ");
+		System.out.println(" ");
 	}
 }
