@@ -3,11 +3,11 @@ package rin.lesson3.calculate;
 public class TokenNumeric extends Token{
 	
 	public TokenNumeric(String strNumeric) {
-		super.value = strNumeric;
+		super(strNumeric);
 	}
 
 	public double getDoubleValue(){
-		return Double.parseDouble(super.toString());
+		return Double.parseDouble(super.getValue().toString());
 	}
 
 	@Override

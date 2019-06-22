@@ -3,7 +3,7 @@ package rin.lesson3.calculate;
 public class TokenOperator extends Token{
 	
 	public TokenOperator(String strOpe) {
-		super.value = strOpe;
+		super(strOpe);
 	}
 
 	@Override
@@ -27,9 +27,9 @@ public class TokenOperator extends Token{
 		if(token == null){
 			return result;
 		}
-		int tokenIndexLeft = commonFunction.getOperatorPriorityIndex(super.toString());
-		int tokenIndexRight = commonFunction.getOperatorPriorityIndex(token.toString());
-		return commonFunction.ope_priority[tokenIndexLeft][tokenIndexRight];
+		int tokenIndexLeft = CommonUtil.getOperatorPriorityIndex(super.toString());
+		int tokenIndexRight = CommonUtil.getOperatorPriorityIndex(token.toString());
+		return CommonUtil.ope_priority[tokenIndexLeft][tokenIndexRight];
 	}
 
 }
