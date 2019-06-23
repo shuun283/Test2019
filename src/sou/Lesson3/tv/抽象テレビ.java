@@ -36,6 +36,7 @@ public abstract class 抽象テレビ implements テレビ {
 	public void チャンネルを変える(int channel) {
 		this.channel = channel;
 		// 再生？
+		番組を再生する(); 
 	}
 
 	@Override
