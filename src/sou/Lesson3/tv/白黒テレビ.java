@@ -8,7 +8,7 @@ public class 白黒テレビ extends 抽象テレビ {
 
 	@Override
 	public void 番組を再生する() {
-		System.out.print(
+		System.out.println(
 				String.format("白黒テレビの番組を再生します。[channel:%d, volumn:%d]", getChannel(), getVolumn()));
 	}
 
