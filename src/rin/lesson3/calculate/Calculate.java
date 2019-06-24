@@ -6,8 +6,7 @@ import java.util.Stack;
 public class Calculate {
 
 	/**
-	 * 加算機【四則演算】
-	 * 
+	 * 計算する
 	 * @param targetStr
 	 * @return
 	 * @throws Exception
@@ -31,7 +30,7 @@ public class Calculate {
 	}
 
 	/**
-	 * 加算機【四則演算】
+	 * 四則演算
 	 * 
 	 * @param targetStr
 	 * @return

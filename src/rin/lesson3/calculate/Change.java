@@ -7,9 +7,8 @@ import java.util.Stack;
 public class Change {
 
 	/**
-	 * 加算機【四則演算】
-	 * 
-	 * @param targetStr
+	 * 中置式から後置式へ
+	 * @param tokenList
 	 * @return
 	 * @throws Exception
 	 */
@@ -32,8 +31,14 @@ public class Change {
 		}
 		doPopOpeStack(null, opeStack, middleExpList);
 		return middleExpList;
-	}// 
+	}
 
+	/**
+	 * オペレータのPOP
+	 * @param token
+	 * @param opeStack
+	 * @param middleExpList
+	 */
 	private static void doPopOpeStack(Token token, Stack<Token> opeStack, List<Token> middleExpList) {
 		while (!opeStack.isEmpty()) {
 			if (token == null || token.isPriorityHigherThan(opeStack.peek()) <= 0) {
