@@ -5,7 +5,7 @@ public class CommonUtil {
 	public static String[] OPERATORS = {"(",")","+","-","*","/"};
 
 	/**
-	 * 
+	 * 優先度インデックスを取得する
 	 * @param strOpe
 	 * @return
 	 */
@@ -21,7 +21,7 @@ public class CommonUtil {
 	}
 
 	/**
-	 * 
+	 * 優先度比較結果の定義
 	 * 縦は一目演算子のインデックス 
 	 * (,),+,-,*,/,#
 	 * 横は二目演算子のインデックス
@@ -40,7 +40,7 @@ public class CommonUtil {
 	};
 
 	/**
-	 * 
+	 * 演算子の判断
 	 * @param c
 	 * @return
 	 */
@@ -52,7 +52,7 @@ public class CommonUtil {
 	}
 
 	/**
-	 * 
+	 * 数値の判断
 	 * @param c
 	 * @return
 	 */

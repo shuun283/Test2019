@@ -1,12 +1,12 @@
 package rin.lesson3.calculate;
 
-public class TokenNumeric extends Token{
-	
+public class TokenNumeric extends Token {
+
 	public TokenNumeric(String strNumeric) {
 		super(strNumeric);
 	}
 
-	public double getDoubleValue(){
+	public double getDoubleValue() {
 		return Double.parseDouble(super.getValue().toString());
 	}
 
