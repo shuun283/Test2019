@@ -1,10 +1,14 @@
-package teiKomei;
+package teikoumei;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Arithmetic extends Arithm implements ArithmeticIF {
+/**
+ * @author 鄭　光明
+ *
+ */
+public class Arithmetic implements ArithmeticIF {
 	
 	public void Operation(String arithmeticData) throws Exception {
 		Arithmetic arithmetic = new Arithmetic();
@@ -25,17 +29,21 @@ public class Arithmetic extends Arithm implements ArithmeticIF {
 			case '+':
 			case '*':
 			case '/':
+			case '(':
+			case ')':
 				if (operator.length() > 0) {
-					setLength(resultList, operator);
+					resultList.add(operator.toString());
+					operator.setLength(0);
 				}
 				resultList.add(data);
 				break;
 			case '-':
-				if (i == 0 && (c) == '-') {
+				if (i == 0) {
 					operator.append(c);
 				} else {
 					if (operator.length() > 0) {
-						setLength(resultList, operator);
+						resultList.add(operator.toString());
+						operator.setLength(0);
 					}
 					resultList.add(data);
 				}
@@ -43,7 +51,7 @@ public class Arithmetic extends Arithm implements ArithmeticIF {
 			case ' ':
 				continue;
 			default:
-				if (!isNumber(c)) {
+				if (!Common.isNumber(c)) {
 					throw new Exception(Constants.FOUR_ARITHMETIC_ERROR + "     " + "エラー位置: " + i);
 				} else {
 					operator.append(c);
@@ -56,46 +64,67 @@ public class Arithmetic extends Arithm implements ArithmeticIF {
 		return resultList;
 	}
 
+	/**
+	 * @param list
+	 * @return 
+	 */
 	private List<String> RPNList(List<String> list) {
-		List<String> result = new ArrayList<String>();
-		Stack<String> stackResult = new Stack<String>();
-		String tmp;
-		for (String l : list) {
-			if (l.equals("*") || l.equals("/")) {
-				while (!stackResult.isEmpty()) {
-					tmp = stackResult.peek();
-					if (tmp.equals("*") || tmp.equals("/")) {
-						stackResult.pop();
-						result.add(tmp);
-					} else {
-						break;
-					}
-				}
-				stackResult.push(l);
-			} else if (l.equals("+") || l.equals("-")) {
-				while (!stackResult.isEmpty()) {
-					tmp = stackResult.peek();
-					stackResult.pop();
-					result.add(tmp);
-				}
-				stackResult.push(l);
+		List<String> resultList = new ArrayList<String>();
+		Stack<String> stack = new Stack<String>();//スタックで数学演算子を格納される
+
+		for (String item : list) {
+			//数値の場合は、リストに直接格納されています。
+			if (!Common.isOperator(item)) {
+				resultList.add(item);
 			} else {
-				result.add(l);
+				switch (item) {
+				case "+":
+				case "-":
+					if (!stack.empty() && (!stack.peek().equals("("))) {
+						resultList.add(stack.pop());
+					}
+					stack.push(item);
+					break;
+				case "*":
+				case "/":
+					if (!stack.empty()
+							&& (stack.peek().equals("*") || stack.peek().equals("/"))) {
+						resultList.add(stack.pop());
+					}
+					stack.push(item);
+					break;
+				case "(":
+					stack.push(item);
+					break;
+				case ")":
+					while (!stack.empty() && (!stack.peek().equals("("))) {
+						resultList.add(stack.pop());
+					}
+					stack.pop();
+					break;
+				}
 			}
 		}
-		while (!stackResult.isEmpty()) {
-			result.add(stackResult.pop());
+		while (!stack.empty()) {
+			resultList.add(stack.pop());
 		}
-		return result;
+		System.out.println(resultList);
+		return resultList;
 	}
 
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 * @throws Exception
+	 */
 	private double RPNCalculation(List<String> list) throws Exception {
 		Stack<Double> resultStack = new Stack<Double>();
 		Double num1;
 		Double num2;
 		double resultNum;
 		for (String item : list) {
-			if (isOperator(item)) {
+			if (Common.isOperator(item)) {
 				num2 = resultStack.pop();
 				num1 = resultStack.pop();
 				switch (item) {

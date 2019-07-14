@@ -1,13 +1,23 @@
 package shuTenho;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class Arithmetic {
+import com.sun.tools.javac.resources.compiler;
 
-    private Stack<Character> oprStack = new Stack<Character>();
+public class Arithmetic implements Serializable {
 
-    private Stack<Integer> numStack = new Stack<Integer>();
+    private String expression = "";
 
+    @Transient(condition=ssss)
+    private transient Stack<Character> oprStack = new Stack<Character>();
+
+    private transient Stack<Integer> numStack = new Stack<Integer>();
+
+    public Arithmetic(String expression) {
+        this.expression = expression;
+        compiler();
+    }
     public static void main(String[] args) {
         Arithmetic a = new Arithmetic();
         System.out.println(a.calc("5+3*(20-30)/5#"));        System.out.println(a.calc("5+3*(20-30)/5#"));
