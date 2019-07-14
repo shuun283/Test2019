@@ -15,8 +15,8 @@ public class IOStream {
 		FileOutputStream out = null;
 		
 		try {
-			inputFile = new File("input.txt");
-			outputFile = new File("output.txt");
+			inputFile = new File("C:\\Users\\softthink\\Desktop\\input.txt");
+			outputFile = new File("C:\\Users\\softthink\\Desktop\\output.txt");
 			in = new FileInputStream(inputFile);
 			out = new FileOutputStream(outputFile);
 			int c;
