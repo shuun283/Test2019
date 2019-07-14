@@ -1,59 +1,99 @@
 package shuTenho;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Arithmetic {
 
+    private Stack<Character> oprStack = new Stack<Character>();
+
+    private Stack<Integer> numStack = new Stack<Integer>();
+
     public static void main(String[] args) {
+        Arithmetic a = new Arithmetic();
+        System.out.println(a.calc("5+3*(20-30)/5#"));        System.out.println(a.calc("5+3*(20-30)/5#"));
 
-        BufferedReader reader = null;
-        InputStreamReader inputStreamReader = null;
-        try {
-            System.out.println("演算式を入力ください");
-            inputStreamReader = new InputStreamReader(System.in);
-            reader = new BufferedReader(inputStreamReader);
-            String str = reader.readLine();
-            {
-                System.out.println("結果：" + opt(str) + "");
+    }
+
+    public Integer calc(String src) {
+        int from = 0, to = 0;
+
+        clear();
+        char[] cs = src.toCharArray();
+        while (to < cs.length && from < cs.length) {
+            boolean numORopr = isNum(cs[from]);
+            do {
+                to++;
+            } while (to < cs.length && numORopr && isNum(cs[to]));
+            if (numORopr) {
+                addNum(Integer.parseInt(new String(cs, from, to - from)));
+                System.out.println(new String(cs, from, to - from));
+            } else {
+                addOpr(cs[from]);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            from = to;
         }
-        if (reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        return numStack.pop();
+    }
+
+    public void clear() {
+
+        oprStack.clear();
+        numStack.clear();
+    }
+
+    private boolean isNum(char b) {
+
+        return  '0'<= b &&b  <= '9';
+    }
+
+    private void addOpr(Character c) {
+
+        while (!oprStack.empty() && isNeedCalc(c)) {
+            calcByStep();
+        }
+        if (c == ')') {
+            oprStack.pop();
+        } else if (c != '#') {
+            oprStack.push(c);
         }
     }
 
-    public static double opt(String s) throws Exception {
-        if (s == null || "".equals(s.trim())) {
-        }
-        int a1 = s.indexOf("+");
-        int a2 = s.indexOf("-");
-        int a3 = s.indexOf("*");
-        int a4 = s.indexOf("/");
+    private boolean isNeedCalc(Character c) {
 
-        if (a1 != -1) {
-            return opt(s.substring(0, a1)) + opt(s.substring(a1 + 1, s.length()));
-        }
-        if (a2 != -1) {
-            return opt(s.substring(0, a2)) - opt(s.substring(a2 + 1, s.length()));
-        }
-        if (a3 != -1) {
-            return opt(s.substring(0, a3)) * opt(s.substring(a3 + 1, s.length()));
-        }
-        if (a4 != -1) {
-            double divisor = opt(s.substring(a4 + 1, s.length()));
-            if (divisor == 0) {
-                throw new Exception("除数を0にするこはできません");
-            }
-            return opt(s.substring(0, a4)) / divisor;
-        }
-        return Integer.parseInt(s.trim());
+        Character last = oprStack.lastElement();
+        if (c == '(' || last == '(')
+            return false;
+        if (c == '*' || c == '/')
+            return last == '*' || last == '/';
+        if (c == '#' || c == ')' || c == '+' || c == '-')
+            return true;
+        throw new IllegalArgumentException();
     }
+
+    private void addNum(Integer i) {
+
+        numStack.push(i);
+    }
+
+    private Character calcByStep() {
+
+		int num2 = numStack.pop();
+		int num1 = numStack.pop();
+		char opr = oprStack.pop();
+		switch (opr) {
+		case '+':
+			numStack.push(num1 + num2);
+			break;
+		case '-':
+			numStack.push(num1 - num2);
+			break;
+		case '*':
+			numStack.push(num1 * num2);
+			break;
+		case '/':
+			numStack.push(num1 / num2);
+			break;
+		}
+		return opr;
+	}
 }

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class tryWithResources {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		String dir = "C:\\tryWithResources";
 		String filename1 = "\\test1.png";
 		String filename2 = "\\test2.png";
@@ -29,6 +29,7 @@ public class tryWithResources {
 			while ((data = reader.read()) != -1) {
 				writer.write(data);
 			}
+			throw new Exception();
 		} catch (IOException e) {
 			e.printStackTrace();
 
