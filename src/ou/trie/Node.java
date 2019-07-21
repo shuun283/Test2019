@@ -4,25 +4,25 @@ import java.util.ArrayList;
 
 public class Node {
 
-	private String data;
-
+	private char data;
+	// word
+//	private String word;
 	private String description;
-	private Node parent;
 	private ArrayList<Node> children;
 
 	public Node() {
 	}
 
-	public Node(String data, String description) {
-		this.data = this.parent.data + data;
+	public Node(char data, String description) {
+		this.data = data;
 		this.description = description;
 	}
 
-	public String getData() {
+	public char getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(char data) {
 		this.data = data;
 	}
 
@@ -34,24 +34,11 @@ public class Node {
 		this.description = description;
 	}
 
-	public void setParent(Node parent) {
-		this.parent = parent;
-	}
-
 	public ArrayList<Node> getChildren() {
 		if (this.children == null) {
 			this.children = new ArrayList<Node>();
 		}
 		return this.children;
-	}
-
-	public Node findChildNode(String data) {
-		for (Node node : children) {
-			if (node.data.equals(data)) {
-				return node;
-			}
-		}
-		return new Node();
 	}
 
 }
