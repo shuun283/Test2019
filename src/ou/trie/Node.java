@@ -2,7 +2,27 @@ package ou.trie;
 
 import java.util.ArrayList;
 
+/**
+ * @author softthink
+ *
+ */
 public class Node {
+
+    private Word word;
+
+    private Node[] nodes = new Node[26];
+
+    private char key;
+
+    private char ああああ;
+
+    public char getKey() {
+        return key;
+    }
+
+    public void setKey(char key) {
+        this.key = key;
+    }
 
 	private String data;
 
@@ -53,5 +73,13 @@ public class Node {
 		}
 		return new Node();
 	}
+
+    public Node[] getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(Node[] nodes) {
+        this.nodes = nodes;
+    }
 
 }
