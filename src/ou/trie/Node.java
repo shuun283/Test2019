@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Node {
 
 	private char data;
-	// word
-//	private String word;
+	private String word;// word
 	private String description;
 	private ArrayList<Node> children;
 
