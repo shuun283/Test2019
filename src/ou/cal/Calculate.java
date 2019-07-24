@@ -1,5 +1,6 @@
 package ou.cal;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ final class Calculate {
 		// method
 		// return data
 
-		return null;
+		return Arrays.asList("test");
 	}
 
 //	private static List<> validate(List<String> formulaList) {
