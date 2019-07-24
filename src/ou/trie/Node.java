@@ -40,4 +40,9 @@ public class Node {
 		return this.children;
 	}
 
+	public Node[] getNodes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
