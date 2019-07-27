@@ -5,17 +5,17 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * @author é„­ã€€å…‰æ˜Ž
+ * @author “A Œõ–¾
  *
  */
 public class Arithmetic implements ArithmeticIF {
-	
+
 	public void Operation(String arithmeticData) throws Exception {
 		Arithmetic arithmetic = new Arithmetic();
 		List<String> list = arithmetic.listArithmetic(arithmeticData);
 		List<String> list2 = arithmetic.RPNList(list);
 		double result = arithmetic.RPNCalculation(list2);
-		System.out.println("çµæžœ:   " + result);
+		System.out.println("Œ‹‰Ê:   " + result);
 	}
 
 	private List<String> listArithmetic(String arithmeticData) throws Exception {
@@ -24,6 +24,14 @@ public class Arithmetic implements ArithmeticIF {
 		StringBuilder operator = new StringBuilder();
 		for (int i = 0; i < arithmeticDataArray.length; i++) {
 			char c = arithmeticDataArray[i];
+			// CF”’l‚Ìê‡
+			if (Common.isNumber(c)) {
+				operator.append(c);
+				continue;
+			} else if (operator.length() > 0) {
+				resultList.add(operator.toString());
+				operator.setLength(0);
+			}
 			String data = String.valueOf(c);
 			switch (c) {
 			case '+':
@@ -31,31 +39,19 @@ public class Arithmetic implements ArithmeticIF {
 			case '/':
 			case '(':
 			case ')':
-				if (operator.length() > 0) {
-					resultList.add(operator.toString());
-					operator.setLength(0);
-				}
 				resultList.add(data);
 				break;
 			case '-':
 				if (i == 0) {
 					operator.append(c);
 				} else {
-					if (operator.length() > 0) {
-						resultList.add(operator.toString());
-						operator.setLength(0);
-					}
 					resultList.add(data);
 				}
 				break;
 			case ' ':
 				continue;
 			default:
-				if (!Common.isNumber(c)) {
-					throw new Exception(Constants.FOUR_ARITHMETIC_ERROR + "     " + "ã‚¨ãƒ©ãƒ¼ä½ç½®: " + i);
-				} else {
-					operator.append(c);
-				}
+				throw new Exception(Constants.FOUR_ARITHMETIC_ERROR + "     " + "ƒGƒ‰[ˆÊ’u: " + i);
 			}
 		}
 		if (operator.length() > 0) {
@@ -66,14 +62,14 @@ public class Arithmetic implements ArithmeticIF {
 
 	/**
 	 * @param list
-	 * @return 
+	 * @return
 	 */
 	private List<String> RPNList(List<String> list) {
 		List<String> resultList = new ArrayList<String>();
-		Stack<String> stack = new Stack<String>();//ã‚¹ã‚¿ãƒƒã‚¯ã§æ•°å­¦æ¼”ç®—å­ã‚’æ ¼ç´ã•ã‚Œã‚‹
+		Stack<String> stack = new Stack<String>();// ƒXƒ^ƒbƒN‚Å”Šw‰‰ŽZŽq‚ðŠi”[‚³‚ê‚é
 
 		for (String item : list) {
-			//æ•°å€¤ã®å ´åˆã¯ã€ãƒªã‚¹ãƒˆã«ç›´æŽ¥æ ¼ç´ã•ã‚Œã¦ã„ã¾ã™ã€‚
+			// ”’l‚Ìê‡‚ÍAƒŠƒXƒg‚É’¼ÚŠi”[‚³‚ê‚Ä‚¢‚éB
 			if (!Common.isOperator(item)) {
 				resultList.add(item);
 			} else {
@@ -87,8 +83,7 @@ public class Arithmetic implements ArithmeticIF {
 					break;
 				case "*":
 				case "/":
-					if (!stack.empty()
-							&& (stack.peek().equals("*") || stack.peek().equals("/"))) {
+					if (!stack.empty() && (stack.peek().equals("*") || stack.peek().equals("/"))) {
 						resultList.add(stack.pop());
 					}
 					stack.push(item);
@@ -108,11 +103,11 @@ public class Arithmetic implements ArithmeticIF {
 		while (!stack.empty()) {
 			resultList.add(stack.pop());
 		}
-		System.out.println(resultList);
 		return resultList;
 	}
 
 	/**
+	 * ŒvŽZ
 	 * 
 	 * @param list
 	 * @return

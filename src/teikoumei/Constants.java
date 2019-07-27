@@ -1,7 +1,7 @@
 package teikoumei;
 
 public class Constants {
-	final static String DENOMINATOR_EXCEPTION = "åˆ†æ¯ã‚’0ã«ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚";
-	
-	final static String FOUR_ARITHMETIC_ERROR = "å››å‰‡æ¼”ç®—ã‚¨ãƒ©ãƒ¼";
+	final static String DENOMINATOR_EXCEPTION = "•ª•ê‚ğ0‚É‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB";
+
+	final static String FOUR_ARITHMETIC_ERROR = "l‘¥‰‰ZƒGƒ‰[";
 }
