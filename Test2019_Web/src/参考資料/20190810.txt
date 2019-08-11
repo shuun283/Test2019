@@ -31,3 +31,22 @@ Tomcat
 
 https://wa3.i-3-i.info/word12843.html
 http://e-words.jp/w/Tomcat.html
+
+
+
+
+http　プロトコル　⇒維持できない
+ステートレス（状態）
+
+cookieを導入（クライアント側に状態を維持するため）
+情報の単位：path、パラメータ等
+
+毎回サーバに送るが、サーバ側は更新した情報しか返さない
+
+
+sessionIDは最初にアクセス時に作成する
+サーバ側に管理する
+
+ロードバランサーをコントロールして、１sessionを１APに配る
+
+
