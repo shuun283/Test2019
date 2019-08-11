@@ -1,0 +1,72 @@
+Operator
+OperatorNew
+OperatordNewNew]
+
+Operator1
+Operator2
+
+OperatorTemp
+
+
+Javadoc
+必要不可欠
+
+Source code is comment
+
+命名
+
+
+敢えて
+
+public:どこからでもアクセスできる。ただ、Java9モジュール導入されていて、
+protected：同じパッケージ下のクラスもしくは自分自身を継承しているサブクラスからアクセスできる
+default；同じパッケージ下のクラスからアクセスできる
+private；自分自身のクラス中からのみアクセスできる。
+
+a.b
+a.b.c
+
+
+アーキテクト：資格
+
+Javaプログラマとして失格
+
+知識→知る→なぜを知る→応用
+　　　大体わかる
+
+取り除く
+
+中置式→後置式　　括弧を取り除く　　機械的に処理できる
+2 * (2 + 3)
+アルゴリズムによって、単純に処理できる
+活用
+
+精錬
+
+字句解析→構文解析→後置式変換→計算
+
+正規表現
+乱用
+CPUコスト
+
+3大原則
+可読性、保守性、パフォーマンス
+破る
+
+関数の機能
+
+
+姓 familyName
+名 firstName
+電話番号  telNo
+
+/** 姓 */  private String familyName;
+/** 名 */  private String firstName;
+/** 電話番号 */ private String telNo;
+
+自分自身の作業効率を改善する意識
+
+威力を発揮
+
+
+疎結合→プログラム間の依存性を低くする
