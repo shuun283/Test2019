@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1">
+ 
+  <servlet>
+  	<servlet-name>SessionDemo1</servlet-name>
+  	<servlet-class>com.session.study.SessionDemo1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>SessionDemo1</servlet-name>
+  		<url-pattern>/sessionDemo1</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+  	<servlet-name>SessionDemo2</servlet-name>
+  	<servlet-class>com.session.study.SessionDemo2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>SessionDemo2</servlet-name>
+  		<url-pattern>/sessionDemo2</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>SessionDemo3</servlet-name>
+  	<servlet-class>com.session.study.SessionDemo3</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>SessionDemo3</servlet-name>
+  		<url-pattern>/sessionDemo3</url-pattern>
+  </servlet-mapping>
+
+   <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+<session-config>
+	<session-timeout>30</session-timeout>
+</session-config>
+
+</web-app>

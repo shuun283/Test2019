@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1">
+ 
+ <context-param>
+ 	<param-name>url</param-name>
+ 	<param-value>jdbc:mysql://localhost:3306/test</param-value>
+ </context-param> 
+ 
+ <listener>
+ <description>listenerDemo2</description>
+ <listener-class>com.listen.study.ListenDemo2</listener-class>
+ </listener>
+ 
+ <listener>
+ <description>listenerDemo1</description>
+ <listener-class>com.listen.study.ListenDemo1</listener-class>
+ </listener>
+ 
+ <filter>
+ 	<filter-name>filterDemo1</filter-name>
+ 	<filter-class>com.filter.study.FilterDemo1</filter-class>
+ </filter>
+ 
+ <filter-mapping>
+ 	<filter-name>filterDemo1</filter-name>
+ 	<url-pattern>/ServletContextDemo</url-pattern>
+ </filter-mapping>
+
+  <servlet>
+  	<servlet-name>urlDemo1</servlet-name>
+  	<servlet-class>com.url.study.UrlTest</servlet-class>
+  </servlet>
+  
+ 
+  <servlet-mapping>
+  		<servlet-name>urlDemo1</servlet-name>
+  		<url-pattern>/UrlTest</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<servlet-name>cookieDemo1</servlet-name>
+  	<servlet-class>com.cookie.study.ServletCookieDemo1</servlet-class>
+  </servlet>
+  
+ 
+  <servlet-mapping>
+  		<servlet-name>cookieDemo1</servlet-name>
+  		<url-pattern>/cookieDemo1</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is a description for my first servlet demo</description>
+  	<servlet-name>ServletDemo1</servlet-name>
+  	<servlet-class>com.servlet.study.ServletDemo1</servlet-class>
+  </servlet>
+  
+ 
+  <servlet-mapping>
+  		<servlet-name>ServletDemo1</servlet-name>
+  		<url-pattern>/servlet/serletDemo1</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<description>This is a description for my first servlet demo</description>
+  	<servlet-name>ServletDemo2</servlet-name>
+  	<servlet-class>com.servlet.study.Demo2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletDemo2</servlet-name>
+  		<url-pattern>/serletDemo2</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RequestDemo1</servlet-name>
+  	<servlet-class>com.servlet.study.RequestDemo1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>RequestDemo1</servlet-name>
+  		<url-pattern>/RequestDemo1</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>ServletDemo4</servlet-name>
+  	<servlet-class>com.servlet.study.Demo4</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletDemo4</servlet-name>
+  		<url-pattern>/serletDemo4</url-pattern>
+  </servlet-mapping>
+    
+  <servlet>
+  	<servlet-name>ServletContextDemo</servlet-name>
+  	<servlet-class>com.servlet.study.ServletContextDemo</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletContextDemo</servlet-name>
+  		<url-pattern>/ServletContextDemo</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+  	<servlet-name>ServletContextDemo2</servlet-name>
+  	<servlet-class>com.servlet.study.ServletContextDemo2</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletContextDemo2</servlet-name>
+  		<url-pattern>/ServletContextDemo2</url-pattern>
+  </servlet-mapping>
+ <servlet>
+  	<servlet-name>ServletContextDemo3</servlet-name>
+  	<servlet-class>com.servlet.study.ServletContextDemo3</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletContextDemo3</servlet-name>
+  		<url-pattern>/ServletContextDemo3</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+  	<servlet-name>ServletContextDemo4</servlet-name>
+  	<servlet-class>com.servlet.study.ServletContextDemo4</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletContextDemo4</servlet-name>
+  		<url-pattern>/ServletContextDemo4</url-pattern>
+  </servlet-mapping>
+  
+ <servlet>
+  	<servlet-name>ServletContextDemo5</servlet-name>
+  	<servlet-class>com.servlet.study.ServletContextDemo5</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletContextDemo5</servlet-name>
+  		<url-pattern>/ServletContextDemo5</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>ServletDemo3</servlet-name>
+  	<servlet-class>com.servlet.study.Demo3</servlet-class>
+  	<init-param>
+  		<param-name>name</param-name>
+  		<param-value>zxb</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>age</param-name>
+  		<param-value>18</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>charset</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>ServletDemo3</servlet-name>
+  		<url-pattern>/serletDemo3</url-pattern>
+  </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
