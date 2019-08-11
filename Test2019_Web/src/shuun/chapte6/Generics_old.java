@@ -6,16 +6,16 @@ public class Generics_old {
 		ClassSample cs = new ClassSample("Hello");
 		Integer i = (Integer) cs.getO();
 		System.out.println(i);
-		
+
 		// String型として利用可能
-        ClassSample1<String> cs1 = new ClassSample1<String>("Hello");
-        String str = cs1.getT();
-        System.out.println(str);
- 
-        // Integer型として利用可能
-        ClassSample1<Integer> cs2 = new ClassSample1<Integer>(1);
-        Integer j = cs2.getT();
-        System.out.println(j);
+		ClassSample1<String> cs1 = new ClassSample1<String>("Hello");
+		String str = cs1.getT();
+		System.out.println(str);
+
+		// Integer型として利用可能
+		ClassSample1<Integer> cs2 = new ClassSample1<Integer>(1);
+		Integer j = cs2.getT();
+		System.out.println(j);
 	}
 
 }
@@ -31,14 +31,15 @@ class ClassSample {
 		return o;
 	}
 }
-class ClassSample1<T>{
-    private T t;
- 
-    public ClassSample1(T t){
-        this.t = t;
-    }
- 
-    public T getT(){
-        return t;
-    }
+
+class ClassSample1<T> {
+	private T t;
+
+	public ClassSample1(T t) {
+		this.t = t;
+	}
+
+	public T getT() {
+		return t;
+	}
 }
