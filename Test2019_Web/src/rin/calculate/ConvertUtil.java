@@ -19,7 +19,7 @@ public class ConvertUtil {
 		List<Token> tokenListTo = new ArrayList<Token>();
 		Stack<Token> tmpStack = new Stack<Token>();
 		for (Token token : tokenListFrom) {
-			if (token.getNoteType() == TokenType.PAREN_CLOSE) {
+			if (token.getNodeType() == TokenType.PAREN_CLOSE) {
 				popOperatorsUntilParenLeft(tmpStack, tokenListTo);
 			} else {
 				popOrPushOperators(tmpStack, tokenListTo, token);
@@ -39,7 +39,7 @@ public class ConvertUtil {
 	 */
 	private static void popOperatorsUntilParenLeft(final Stack<Token> tmpStack, final List<Token> tokenListTo) {
 		while (!tmpStack.isEmpty()) {
-			if (TokenType.PAREN_OPEN.equals(tmpStack.peek().getNoteType())) {
+			if (TokenType.PAREN_OPEN.equals(tmpStack.peek().getNodeType())) {
 				tmpStack.pop();
 				break;
 			}

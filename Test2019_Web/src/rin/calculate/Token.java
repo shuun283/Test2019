@@ -3,27 +3,27 @@ package rin.calculate;
 public abstract class Token {
 
 	private Object value;
-	private TokenType noteType;
+	private TokenType nodeType;
 	private int priorityIndex;
 
-	public Token(TokenType noteType) {
-		this.value = noteType.getValue();
-		this.noteType = noteType;
-		this.priorityIndex = noteType.getPriorityIndex();
+	public Token(TokenType nodeType) {
+		this.value = nodeType.getValue();
+		this.nodeType = nodeType;
+		this.priorityIndex = nodeType.getPriorityIndex();
 	}
 
-	public Token(Object note, TokenType noteType) {
-		this.value = note;
-		this.noteType = noteType;
-		this.priorityIndex = noteType.getPriorityIndex();
+	public Token(Object node, TokenType nodeType) {
+		this.value = node;
+		this.nodeType = nodeType;
+		this.priorityIndex = nodeType.getPriorityIndex();
 	}
 
 	public Object getValue() {
 		return this.value;
 	}
 
-	public TokenType getNoteType() {
-		return this.noteType;
+	public TokenType getNodeType() {
+		return this.nodeType;
 	}
 
 	public String getStringValue() {

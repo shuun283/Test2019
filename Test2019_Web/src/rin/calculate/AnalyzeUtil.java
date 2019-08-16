@@ -34,7 +34,7 @@ public class AnalyzeUtil {
 					break;
 				case '-':
 					if (tokenBefore != null
-							&& (TokenType.PAREN_CLOSE.equals(tokenBefore.getNoteType()) || TokenType.NUMERIC.equals(tokenBefore.getNoteType()))) {// オペレータとして
+							&& (TokenType.PAREN_CLOSE.equals(tokenBefore.getNodeType()) || TokenType.NUMERIC.equals(tokenBefore.getNodeType()))) {// オペレータとして
 						token = new TokenOperator(TokenType.MINUS);
 						rullerNum--;
 					} else {// オペランドとして

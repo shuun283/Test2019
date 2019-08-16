@@ -18,7 +18,7 @@ public class CalculateUtil {
 	public static double calcutePostfixExp(final List<Token> postfixTokenList) throws CalcuteException {
 		Stack<Double> numStack = new Stack<Double>();
 		for (Token token : postfixTokenList) {
-			if (TokenType.NUMERIC.equals(token.getNoteType())) {
+			if (TokenType.NUMERIC.equals(token.getNodeType())) {
 				numStack.push(((TokenNumeric) token).getDoubleValue());
 			} else {
 				numStack.push(doCalcute(token, numStack));
@@ -40,7 +40,7 @@ public class CalculateUtil {
 		double num2 = numStack.pop();
 		double num1 = numStack.pop();
 
-		switch (operator.getNoteType()) {
+		switch (operator.getNodeType()) {
 			case ADD:
 				result = num1 + num2;
 				break;
