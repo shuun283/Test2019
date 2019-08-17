@@ -18,11 +18,11 @@ public class TestArithmetic {
 	public static List<String> testData() {
 		//a + b * c + (d * e + f)*g
 		List<String> list = new ArrayList<String>();
-		list.add("2+3*1+(4*5+6)*7");
-		//list.add("-1+22*5/2*(2+5)");
-		//list.add("123+1+88*4/2");
-		//list.add("1/0");
-		//list.add("%2-2*2+2");
+		list.add("-4+5)*8");
+		list.add("2+3*1+(-4**5+6)/7*7");
+		list.add("-1+22*5/2*(2+5)");
+		list.add("123+1+88*4/2");
+		list.add("%2-2#*2+2");
 		return list;
 	}
 }
