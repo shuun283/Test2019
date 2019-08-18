@@ -59,7 +59,7 @@ public class RunCalculate {
 	 * 
 	 * @param exp
 	 */
-	private static String doExcute(final String exp){
+	public static String doExcute(final String exp){
 		String result = null;
 		try {
 			char[] chars = exp.toCharArray();
