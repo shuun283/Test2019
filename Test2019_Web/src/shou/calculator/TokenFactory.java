@@ -24,7 +24,7 @@ public class TokenFactory {
 	}
 	
 	/*数字の場合、パラメータはStringである*/
-	public Token getToken (StringBuffer tokenString){	
+	public Token getToken (StringBuilder tokenString){
 		return new Digital(Double.parseDouble(tokenString.toString()));
 	}
 	public Token getToken (Double d){	
@@ -46,6 +46,12 @@ class Add implements Token{
 	public double calculate(double a, double b) {
 		return a + b;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "+";
+	}
 
 
 }
@@ -61,6 +67,12 @@ class Minus implements Token{
 	public double calculate(double a, double b) {
         return a - b;
     }
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "-";
+	}
 }
 
 /*乗算*/
@@ -74,6 +86,12 @@ class Multiply implements Token{
 	public double calculate(double a, double b) {
         return a*b;
     }
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "*";
+	}
 }
 
 /*割り算*/
@@ -91,6 +109,12 @@ class Devide implements Token{
 
         return b1.divide(b2, 3, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "/";
+	}
 }
 
 /*左括弧*/
@@ -105,6 +129,12 @@ class LeftBrackets implements Token{
 	public double calculate(double a, double b) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "(";
 	}
 	
 }
@@ -123,6 +153,11 @@ class RightBrackets implements Token{
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ")";
+	}
 }
 
 /*数字*/
@@ -137,6 +172,12 @@ class Digital implements Token{
 	/*コンストラクタ*/
 	public Digital(double d) {
 		this.value = d;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return value+"";
 	}
 	
 	@Override
